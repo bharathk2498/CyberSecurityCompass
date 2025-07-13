@@ -27,12 +27,14 @@ function waitForDependencies() {
 
 // Navigation functionality
 function initNavigation() {
+    console.log('Initializing navigation...');
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.section');
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
+            console.log('Navigation clicked:', link.textContent);
             
             // Remove active class from all links and sections
             navLinks.forEach(nl => nl.classList.remove('active'));
@@ -46,43 +48,90 @@ function initNavigation() {
             const section = document.getElementById(targetSection);
             if (section) {
                 section.classList.add('active');
+                console.log('Switched to section:', targetSection);
+            } else {
+                console.error('Section not found:', targetSection);
             }
         });
     });
 }
 
-// Assessment functionality
+// Enhanced Assessment functionality with debugging
 function initAssessment() {
-    const categoryItems = document.querySelectorAll('.category-item');
-    const assessmentQuestions = document.querySelectorAll('.assessment-questions');
+    console.log('Initializing assessment...');
+    
+    // Wait a bit for DOM to be fully ready
+    setTimeout(() => {
+        const categoryItems = document.querySelectorAll('.category-item');
+        const assessmentQuestions = document.querySelectorAll('.assessment-questions');
+        
+        console.log('Found category items:', categoryItems.length);
+        console.log('Found assessment questions:', assessmentQuestions.length);
 
-    categoryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            // Remove active class from all categories
-            categoryItems.forEach(ci => ci.classList.remove('active'));
+        if (categoryItems.length === 0) {
+            console.error('No category items found!');
+            return;
+        }
+
+        categoryItems.forEach((item, index) => {
+            console.log(`Setting up category ${index}:`, item.textContent.trim());
             
-            // Add active class to clicked category
-            item.classList.add('active');
+            // Remove any existing listeners
+            const newItem = item.cloneNode(true);
+            item.parentNode.replaceChild(newItem, item);
             
-            // Hide all assessment questions
-            assessmentQuestions.forEach(aq => {
-                aq.classList.remove('active');
-                aq.style.display = 'none';
+            newItem.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Category clicked:', newItem.textContent.trim());
+                
+                // Remove active class from all categories
+                document.querySelectorAll('.category-item').forEach(ci => {
+                    ci.classList.remove('active');
+                });
+                
+                // Add active class to clicked category
+                newItem.classList.add('active');
+                
+                // Hide all assessment questions
+                document.querySelectorAll('.assessment-questions').forEach(aq => {
+                    aq.classList.remove('active');
+                    aq.style.display = 'none';
+                });
+                
+                // Show corresponding questions
+                const category = newItem.getAttribute('data-category');
+                console.log('Looking for category:', category);
+                
+                const targetQuestions = document.getElementById(category);
+                if (targetQuestions) {
+                    targetQuestions.style.display = 'block';
+                    targetQuestions.classList.add('active');
+                    console.log('Switched to questions:', category);
+                    
+                    // Re-initialize icons for the new content
+                    if (typeof lucide !== 'undefined') {
+                        setTimeout(() => lucide.createIcons(), 100);
+                    }
+                } else {
+                    console.error('Questions not found for category:', category);
+                    console.log('Available question sections:', 
+                        Array.from(document.querySelectorAll('.assessment-questions')).map(q => q.id)
+                    );
+                }
             });
-            
-            // Show corresponding questions
-            const category = item.getAttribute('data-category');
-            const targetQuestions = document.getElementById(category);
-            if (targetQuestions) {
-                targetQuestions.style.display = 'block';
-                targetQuestions.classList.add('active');
-            }
         });
-    });
+        
+        // Ensure the first category is properly shown
+        const firstCategory = document.querySelector('.category-item.active');
+        if (firstCategory) {
+            firstCategory.click();
+        }
+    }, 500);
 }
 
 // Chart initialization with error handling
 function initCharts() {
+    console.log('Initializing charts...');
     // Check if Chart.js is available
     if (typeof Chart === 'undefined') {
         console.warn('Chart.js not loaded, skipping chart initialization');
@@ -129,6 +178,7 @@ function initCharts() {
                     }
                 }
             });
+            console.log('Posture chart created');
         }
 
         // Framework Compliance Chart
@@ -159,6 +209,7 @@ function initCharts() {
                     }
                 }
             });
+            console.log('Compliance chart created');
         }
 
         // Compliance Score Chart
@@ -187,6 +238,7 @@ function initCharts() {
                     }
                 }
             });
+            console.log('Compliance score chart created');
         }
     } catch (error) {
         console.error('Error initializing charts:', error);
@@ -195,12 +247,15 @@ function initCharts() {
 
 // Report generation simulation
 function initReports() {
+    console.log('Initializing reports...');
     const generateButtons = document.querySelectorAll('.generate-report');
     
     generateButtons.forEach(button => {
         button.addEventListener('click', () => {
             const template = button.getAttribute('data-template');
             const templateName = button.closest('.template-card').querySelector('h4').textContent;
+            
+            console.log('Generating report:', templateName);
             
             // Simulate report generation
             button.textContent = 'Generating...';
@@ -292,11 +347,13 @@ function calculateAssessmentScore() {
 
 // Auto-save assessment progress
 function initAssessmentTracking() {
-    const radioButtons = document.querySelectorAll('.answer-options input[type="radio"]');
+    console.log('Initializing assessment tracking...');
     
-    radioButtons.forEach(radio => {
-        radio.addEventListener('change', () => {
+    // Use event delegation for dynamically loaded content
+    document.addEventListener('change', (e) => {
+        if (e.target.type === 'radio' && e.target.closest('.answer-options')) {
             const score = calculateAssessmentScore();
+            console.log('Assessment score updated:', score);
             
             // Update any score displays
             const scoreDisplays = document.querySelectorAll('.assessment-score');
@@ -314,12 +371,13 @@ function initAssessmentTracking() {
             } catch (error) {
                 console.warn('Could not save to localStorage:', error);
             }
-        });
+        }
     });
 }
 
 // Search functionality
 function initSearch() {
+    console.log('Initializing search...');
     const searchInput = document.createElement('input');
     searchInput.type = 'text';
     searchInput.placeholder = 'Search frameworks, controls...';
@@ -362,6 +420,7 @@ function initSearch() {
 
 // Keyboard shortcuts
 function initKeyboardShortcuts() {
+    console.log('Initializing keyboard shortcuts...');
     document.addEventListener('keydown', (e) => {
         // Alt + number keys for quick navigation
         if (e.altKey && e.key >= '1' && e.key <= '5') {
@@ -386,6 +445,7 @@ function initKeyboardShortcuts() {
 
 // Dark mode toggle
 function initDarkMode() {
+    console.log('Initializing dark mode...');
     const darkModeToggle = document.createElement('button');
     darkModeToggle.innerHTML = '🌙';
     darkModeToggle.className = 'dark-mode-toggle';
@@ -435,9 +495,11 @@ function initDarkMode() {
 
 // Initialize icons with fallback
 function initIcons() {
+    console.log('Initializing icons...');
     if (typeof lucide !== 'undefined') {
         try {
             lucide.createIcons();
+            console.log('Icons created successfully');
         } catch (error) {
             console.warn('Error creating icons:', error);
         }
@@ -452,10 +514,37 @@ function initIcons() {
     }
 }
 
+// Debug function to test assessment
+function testAssessment() {
+    console.log('Testing assessment functionality...');
+    
+    const categories = document.querySelectorAll('.category-item');
+    console.log('Categories found:', categories.length);
+    
+    categories.forEach((cat, index) => {
+        console.log(`Category ${index}:`, {
+            text: cat.textContent.trim(),
+            dataCategory: cat.getAttribute('data-category'),
+            hasClickListener: cat.onclick !== null
+        });
+    });
+    
+    const questions = document.querySelectorAll('.assessment-questions');
+    console.log('Question sections found:', questions.length);
+    
+    questions.forEach((q, index) => {
+        console.log(`Questions ${index}:`, {
+            id: q.id,
+            display: window.getComputedStyle(q).display,
+            visible: q.style.display !== 'none'
+        });
+    });
+}
+
 // Initialize application
 function initApp() {
     try {
-        console.log('Initializing CyberSecurity Compass...');
+        console.log('🚀 Initializing CyberSecurity Compass...');
         
         initNavigation();
         initAssessment();
@@ -467,14 +556,17 @@ function initApp() {
         initDarkMode();
         initIcons();
         
+        // Debug assessment after initialization
+        setTimeout(testAssessment, 1000);
+        
         // Show welcome notification
         setTimeout(() => {
             showNotification('Welcome to CyberSecurity Compass!', 'info');
-        }, 1000);
+        }, 1500);
         
-        console.log('CyberSecurity Compass initialized successfully');
+        console.log('✅ CyberSecurity Compass initialized successfully');
     } catch (error) {
-        console.error('Error initializing app:', error);
+        console.error('❌ Error initializing app:', error);
         showNotification('Error initializing application', 'error');
     }
 }
@@ -494,3 +586,4 @@ if (document.readyState === 'loading') {
 // Export for global access
 window.initApp = initApp;
 window.showNotification = showNotification;
+window.testAssessment = testAssessment;

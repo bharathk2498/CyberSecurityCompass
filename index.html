@@ -30,14 +30,30 @@
             align-items: center; 
             height: 100vh; 
             font-family: 'Inter', sans-serif;
+            flex-direction: column;
+            gap: 1rem;
         }
         .loading.hidden { display: none; }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e9ecef;
+            border-top: 4px solid #0066cc;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
     <!-- Loading Screen -->
     <div id="loading" class="loading">
+        <div class="loading-spinner"></div>
         <div>Loading CyberSecurity Compass...</div>
+        <div style="font-size: 0.8rem; color: #666;">Initializing security assessment tools</div>
     </div>
     
     <div class="app-container" id="app" style="display: none;">
@@ -150,6 +166,9 @@
                 <div class="section-header">
                     <h1>Security Assessment</h1>
                     <p>Comprehensive evaluation of your security controls</p>
+                    <div style="margin-top: 1rem;">
+                        <button onclick="window.testAssessment && window.testAssessment()" class="btn-secondary">🔍 Debug Assessment</button>
+                    </div>
                 </div>
 
                 <div class="assessment-container">
@@ -201,10 +220,18 @@
                                         <label><input type="radio" name="q2" value="0"> Rarely or never</label>
                                     </div>
                                 </div>
+                                <div class="question-item">
+                                    <h4>Is there a designated Chief Information Security Officer (CISO) or equivalent role?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q7" value="5"> Dedicated CISO with security team</label>
+                                        <label><input type="radio" name="q7" value="3"> Part-time security lead</label>
+                                        <label><input type="radio" name="q7" value="1"> Security responsibilities distributed</label>
+                                        <label><input type="radio" name="q7" value="0"> No designated security role</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
-                        <!-- Hidden assessment sections -->
                         <div class="assessment-questions" id="identity" style="display: none;">
                             <h3>Identity & Access Management</h3>
                             <div class="question-group">
@@ -215,6 +242,24 @@
                                         <label><input type="radio" name="q3" value="3"> MFA for privileged accounts only</label>
                                         <label><input type="radio" name="q3" value="1"> MFA partially implemented</label>
                                         <label><input type="radio" name="q3" value="0"> No MFA implementation</label>
+                                    </div>
+                                </div>
+                                <div class="question-item">
+                                    <h4>Do you have a formal access review process?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q8" value="5"> Automated quarterly access reviews</label>
+                                        <label><input type="radio" name="q8" value="3"> Manual semi-annual reviews</label>
+                                        <label><input type="radio" name="q8" value="1"> Ad-hoc access reviews</label>
+                                        <label><input type="radio" name="q8" value="0"> No access review process</label>
+                                    </div>
+                                </div>
+                                <div class="question-item">
+                                    <h4>Is privileged access management (PAM) implemented?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q9" value="5"> Full PAM solution with session recording</label>
+                                        <label><input type="radio" name="q9" value="3"> Basic privileged account controls</label>
+                                        <label><input type="radio" name="q9" value="1"> Limited privileged access controls</label>
+                                        <label><input type="radio" name="q9" value="0"> No PAM implementation</label>
                                     </div>
                                 </div>
                             </div>
@@ -232,6 +277,24 @@
                                         <label><input type="radio" name="q4" value="0"> No encryption strategy</label>
                                     </div>
                                 </div>
+                                <div class="question-item">
+                                    <h4>Do you have a data classification and handling policy?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q10" value="5"> Comprehensive classification with automated enforcement</label>
+                                        <label><input type="radio" name="q10" value="3"> Basic classification policy</label>
+                                        <label><input type="radio" name="q10" value="1"> Informal data handling guidelines</label>
+                                        <label><input type="radio" name="q10" value="0"> No data classification</label>
+                                    </div>
+                                </div>
+                                <div class="question-item">
+                                    <h4>Are data backups regularly tested and secured?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q11" value="5"> Automated, tested, and encrypted backups</label>
+                                        <label><input type="radio" name="q11" value="3"> Regular backups with periodic testing</label>
+                                        <label><input type="radio" name="q11" value="1"> Basic backup process</label>
+                                        <label><input type="radio" name="q11" value="0"> No backup strategy</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
@@ -241,10 +304,28 @@
                                 <div class="question-item">
                                     <h4>Do you have network segmentation and micro-segmentation in place?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q5" value="5"> Advanced micro-segmentation</label>
+                                        <label><input type="radio" name="q5" value="5"> Advanced micro-segmentation with zero trust</label>
                                         <label><input type="radio" name="q5" value="3"> Basic network segmentation</label>
                                         <label><input type="radio" name="q5" value="1"> Limited segmentation</label>
                                         <label><input type="radio" name="q5" value="0"> Flat network architecture</label>
+                                    </div>
+                                </div>
+                                <div class="question-item">
+                                    <h4>Are intrusion detection and prevention systems (IDS/IPS) deployed?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q12" value="5"> Advanced threat detection with AI/ML</label>
+                                        <label><input type="radio" name="q12" value="3"> Traditional IDS/IPS deployed</label>
+                                        <label><input type="radio" name="q12" value="1"> Basic network monitoring</label>
+                                        <label><input type="radio" name="q12" value="0"> No intrusion detection</label>
+                                    </div>
+                                </div>
+                                <div class="question-item">
+                                    <h4>Is network traffic regularly monitored and analyzed?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q13" value="5"> Real-time traffic analysis with SIEM integration</label>
+                                        <label><input type="radio" name="q13" value="3"> Regular traffic monitoring</label>
+                                        <label><input type="radio" name="q13" value="1"> Basic network logs review</label>
+                                        <label><input type="radio" name="q13" value="0"> No traffic monitoring</label>
                                     </div>
                                 </div>
                             </div>
@@ -256,10 +337,28 @@
                                 <div class="question-item">
                                     <h4>Do you have a tested incident response plan?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q6" value="5"> Regularly tested and updated plan</label>
+                                        <label><input type="radio" name="q6" value="5"> Regularly tested and updated plan with tabletop exercises</label>
                                         <label><input type="radio" name="q6" value="3"> Plan exists but not regularly tested</label>
                                         <label><input type="radio" name="q6" value="1"> Basic plan in development</label>
                                         <label><input type="radio" name="q6" value="0"> No incident response plan</label>
+                                    </div>
+                                </div>
+                                <div class="question-item">
+                                    <h4>Is there a dedicated incident response team?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q14" value="5"> 24/7 SOC with dedicated IR team</label>
+                                        <label><input type="radio" name="q14" value="3"> Part-time IR team with defined roles</label>
+                                        <label><input type="radio" name="q14" value="1"> Ad-hoc incident response</label>
+                                        <label><input type="radio" name="q14" value="0"> No dedicated IR capability</label>
+                                    </div>
+                                </div>
+                                <div class="question-item">
+                                    <h4>Are security incidents tracked and reported to management?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q15" value="5"> Comprehensive incident tracking with executive reporting</label>
+                                        <label><input type="radio" name="q15" value="3"> Basic incident logging and reporting</label>
+                                        <label><input type="radio" name="q15" value="1"> Informal incident tracking</label>
+                                        <label><input type="radio" name="q15" value="0"> No incident tracking</label>
                                     </div>
                                 </div>
                             </div>
@@ -521,26 +620,49 @@
     <script>
         // Initialize app after everything loads
         window.addEventListener('load', function() {
+            console.log('Page loaded, hiding loading screen...');
             // Hide loading screen
             document.getElementById('loading').style.display = 'none';
             document.getElementById('app').style.display = 'block';
             
             // Initialize icons
             if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
+                try {
+                    lucide.createIcons();
+                    console.log('✅ Icons initialized');
+                } catch (e) {
+                    console.warn('⚠️ Icon initialization failed:', e);
+                }
+            } else {
+                console.warn('⚠️ Lucide not available');
             }
             
             // Initialize app if function exists
             if (typeof initApp === 'function') {
+                console.log('🚀 Calling initApp...');
                 initApp();
+            } else {
+                console.error('❌ initApp function not found');
             }
         });
         
         // Error handling
         window.addEventListener('error', function(e) {
-            console.error('Application error:', e.error);
-            document.getElementById('loading').innerHTML = '<div style="color: red;">Error loading application. Please refresh the page.</div>';
+            console.error('❌ Application error:', e.error);
+            const loading = document.getElementById('loading');
+            if (loading) {
+                loading.innerHTML = '<div style="color: red; text-align: center;"><div>⚠️ Error loading application</div><div style="font-size: 0.8rem; margin-top: 1rem;">Please refresh the page or check console for details</div></div>';
+            }
         });
+        
+        // Debug function accessible from console
+        window.debugAssessment = function() {
+            console.log('=== ASSESSMENT DEBUG ===');
+            console.log('Categories:', document.querySelectorAll('.category-item').length);
+            console.log('Questions:', document.querySelectorAll('.assessment-questions').length);
+            console.log('Active category:', document.querySelector('.category-item.active')?.textContent);
+            console.log('Visible questions:', document.querySelector('.assessment-questions[style*="block"]')?.id);
+        };
     </script>
 </body>
 </html>
