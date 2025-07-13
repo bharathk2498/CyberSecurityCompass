@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberSecurity Compass | Enterprise Security Framework</title>
-    <meta name="description" content="Advanced cybersecurity assessment and compliance framework for enterprise environments">
+    <title>CyberSecurity Compass | Elite Security Framework</title>
+    <meta name="description" content="Advanced cybersecurity assessment and compliance framework for enterprise environments - Dynamic, Interactive, Outstanding">
+    <meta name="keywords" content="cybersecurity, compliance, NIST, ISO 27001, security assessment, enterprise security">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMOCA2VjEwQzggMTEuNzQgOS40OSAxNS4yIDEyIDE5QzE0LjUxIDE1LjIgMTYgMTEuNzQgMTYgMTBWNkwxMiAyWiIgZmlsbD0iIzAwNjZjYyIvPgo8L3N2Zz4K">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMOCA2VjEwQzggMTEuNzQgOS40OSAxNS4yIDEyIDE5QzE0LjUxIDE1LjIgMTYgMTEuNzQgMTYgMTBWNkwxMiAyWiIgZmlsbD0iIzAwZmY4OCIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+">
     
     <!-- External CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Local CSS -->
     <link rel="stylesheet" href="./assets/css/main.css">
@@ -20,6 +21,12 @@
     <!-- External Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Meta Tags for Social Media -->
+    <meta property="og:title" content="CyberSecurity Compass | Elite Security Framework">
+    <meta property="og:description" content="Advanced cybersecurity assessment and compliance framework - Dynamic, Interactive, Outstanding">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     
     <style>
         /* Critical CSS for immediate load */
@@ -31,66 +38,129 @@
             height: 100vh; 
             font-family: 'Inter', sans-serif;
             flex-direction: column;
-            gap: 1rem;
+            gap: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2c3e50 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
         .loading.hidden { display: none; }
+        
+        .loading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(55, 66, 250, 0.1) 0%, transparent 50%);
+            animation: loadingShift 3s ease-in-out infinite;
+        }
+        
+        @keyframes loadingShift {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+        
         .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #e9ecef;
-            border-top: 4px solid #0066cc;
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #00ff88;
             border-radius: 50%;
             animation: spin 1s linear infinite;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            position: relative;
+            z-index: 2;
         }
+        
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        .loading-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textPulse 2s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+        
+        @keyframes textPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        
+        .loading-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: subtitleFade 3s ease-in-out infinite;
+        }
+        
+        @keyframes subtitleFade {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
+    <!-- Enhanced Loading Screen -->
     <div id="loading" class="loading">
         <div class="loading-spinner"></div>
-        <div>Loading CyberSecurity Compass...</div>
-        <div style="font-size: 0.8rem; color: #666;">Initializing security assessment tools</div>
+        <div class="loading-text">CyberSecurity Compass</div>
+        <div class="loading-subtitle">Initializing Elite Security Framework...</div>
+        <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.5); text-align: center; max-width: 300px; position: relative; z-index: 2;">
+            🔒 Powered by Advanced Threat Intelligence<br>
+            🛡️ Enterprise-Grade Security Assessment
+        </div>
     </div>
     
     <div class="app-container" id="app" style="display: none;">
-        <!-- Navigation -->
+        <!-- Enhanced Navigation -->
         <nav class="navbar">
             <div class="nav-brand">
                 <i data-lucide="shield-check"></i>
                 <span>CyberSecurity Compass</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#dashboard" class="nav-link active" data-section="dashboard">Dashboard</a></li>
-                <li><a href="#assessment" class="nav-link" data-section="assessment">Assessment</a></li>
-                <li><a href="#frameworks" class="nav-link" data-section="frameworks">Frameworks</a></li>
-                <li><a href="#compliance" class="nav-link" data-section="compliance">Compliance</a></li>
-                <li><a href="#reports" class="nav-link" data-section="reports">Reports</a></li>
+                <li><a href="#dashboard" class="nav-link active" data-section="dashboard">🎯 Dashboard</a></li>
+                <li><a href="#assessment" class="nav-link" data-section="assessment">📊 Assessment</a></li>
+                <li><a href="#frameworks" class="nav-link" data-section="frameworks">🏛️ Frameworks</a></li>
+                <li><a href="#compliance" class="nav-link" data-section="compliance">✅ Compliance</a></li>
+                <li><a href="#reports" class="nav-link" data-section="reports">📄 Reports</a></li>
             </ul>
         </nav>
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Dashboard Section -->
+            <!-- Enhanced Dashboard Section -->
             <section id="dashboard" class="section active">
                 <div class="section-header">
-                    <h1>Security Posture Dashboard</h1>
-                    <p>Real-time visibility into your cybersecurity maturity</p>
+                    <h1>🛡️ Security Posture Dashboard</h1>
+                    <p>Real-time visibility into your cybersecurity maturity with advanced threat intelligence</p>
                 </div>
 
-                <!-- KPI Cards -->
+                <!-- Enhanced KPI Cards -->
                 <div class="kpi-grid">
                     <div class="kpi-card critical">
                         <div class="kpi-icon">
                             <i data-lucide="alert-triangle"></i>
                         </div>
                         <div class="kpi-content">
-                            <h3>Critical Risks</h3>
+                            <h3>Critical Threats</h3>
                             <div class="kpi-value">7</div>
-                            <div class="kpi-trend down">-2 from last week</div>
+                            <div class="kpi-trend down">-2 neutralized this week</div>
                         </div>
                     </div>
                     <div class="kpi-card warning">
@@ -98,9 +168,9 @@
                             <i data-lucide="shield-alert"></i>
                         </div>
                         <div class="kpi-content">
-                            <h3>Compliance Score</h3>
+                            <h3>Security Score</h3>
                             <div class="kpi-value">87%</div>
-                            <div class="kpi-trend up">+3% from last month</div>
+                            <div class="kpi-trend up">+5% improvement</div>
                         </div>
                     </div>
                     <div class="kpi-card success">
@@ -108,9 +178,9 @@
                             <i data-lucide="check-circle"></i>
                         </div>
                         <div class="kpi-content">
-                            <h3>Controls Implemented</h3>
+                            <h3>Controls Active</h3>
                             <div class="kpi-value">156/180</div>
-                            <div class="kpi-trend up">+12 this quarter</div>
+                            <div class="kpi-trend up">+12 deployed this quarter</div>
                         </div>
                     </div>
                     <div class="kpi-card info">
@@ -120,60 +190,61 @@
                         <div class="kpi-content">
                             <h3>Maturity Level</h3>
                             <div class="kpi-value">4.2/5</div>
-                            <div class="kpi-trend up">Optimizing</div>
+                            <div class="kpi-trend up">Advanced</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Charts Row -->
+                <!-- Enhanced Charts Row -->
                 <div class="charts-row">
                     <div class="chart-container">
-                        <h3>Security Posture Trends</h3>
+                        <h3>🔥 Real-Time Security Trends</h3>
                         <canvas id="postureChart" width="400" height="200"></canvas>
                     </div>
                     <div class="chart-container">
-                        <h3>Framework Compliance</h3>
+                        <h3>⚡ Framework Compliance</h3>
                         <canvas id="complianceChart" width="300" height="200"></canvas>
                     </div>
                 </div>
 
-                <!-- Risk Matrix -->
+                <!-- Enhanced Risk Matrix -->
                 <div class="risk-matrix-container">
-                    <h3>Current Risk Landscape</h3>
+                    <h3>🎯 Current Threat Landscape</h3>
                     <div class="risk-matrix">
                         <div class="risk-item high">
-                            <span class="risk-category">Identity & Access</span>
-                            <span class="risk-score">HIGH</span>
+                            <span class="risk-category">🔐 Identity & Access</span>
+                            <span class="risk-score">HIGH RISK</span>
                         </div>
                         <div class="risk-item medium">
-                            <span class="risk-category">Data Protection</span>
+                            <span class="risk-category">🛡️ Data Protection</span>
                             <span class="risk-score">MEDIUM</span>
                         </div>
                         <div class="risk-item low">
-                            <span class="risk-category">Network Security</span>
-                            <span class="risk-score">LOW</span>
+                            <span class="risk-category">🌐 Network Security</span>
+                            <span class="risk-score">LOW RISK</span>
                         </div>
                         <div class="risk-item high">
-                            <span class="risk-category">Cloud Security</span>
-                            <span class="risk-score">HIGH</span>
+                            <span class="risk-category">☁️ Cloud Security</span>
+                            <span class="risk-score">HIGH RISK</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Assessment Section -->
+            <!-- Enhanced Assessment Section -->
             <section id="assessment" class="section">
                 <div class="section-header">
-                    <h1>Security Assessment</h1>
-                    <p>Comprehensive evaluation of your security controls</p>
-                    <div style="margin-top: 1rem;">
+                    <h1>🎯 Dynamic Security Assessment</h1>
+                    <p>Comprehensive AI-powered evaluation of your security controls and posture</p>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem; justify-content: center;">
                         <button onclick="window.testAssessment && window.testAssessment()" class="btn-secondary">🔍 Debug Assessment</button>
+                        <button onclick="window.showNotification && window.showNotification('Assessment tips: Answer honestly for accurate results! 🎯', 'info')" class="btn-secondary">💡 Tips</button>
                     </div>
                 </div>
 
                 <div class="assessment-container">
                     <div class="assessment-sidebar">
-                        <h3>Assessment Categories</h3>
+                        <h3>🛡️ Security Domains</h3>
                         <ul class="assessment-categories">
                             <li class="category-item active" data-category="governance">
                                 <i data-lucide="briefcase"></i>
@@ -196,169 +267,174 @@
                                 <span>Incident Response</span>
                             </li>
                         </ul>
+                        <div style="margin-top: 2rem; padding: 1rem; background: rgba(0, 255, 136, 0.1); border-radius: 8px; border: 1px solid rgba(0, 255, 136, 0.2);">
+                            <h4 style="color: #00ff88; margin-bottom: 0.5rem;">🏆 Assessment Score</h4>
+                            <div class="assessment-score" style="font-size: 2rem; font-weight: 900; color: #00ff88;">0%</div>
+                            <div style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.7);">Complete all categories for final score</div>
+                        </div>
                     </div>
 
                     <div class="assessment-content">
                         <div class="assessment-questions active" id="governance">
-                            <h3>Governance & Risk Management</h3>
+                            <h3>🏛️ Governance & Risk Management</h3>
                             <div class="question-group">
                                 <div class="question-item">
-                                    <h4>Does your organization have a formal cybersecurity governance framework?</h4>
+                                    <h4>Does your organization have a formal cybersecurity governance framework with executive oversight?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q1" value="5"> Comprehensive framework with board oversight</label>
-                                        <label><input type="radio" name="q1" value="3"> Basic framework in place</label>
-                                        <label><input type="radio" name="q1" value="1"> Ad-hoc approach</label>
-                                        <label><input type="radio" name="q1" value="0"> No formal framework</label>
+                                        <label><input type="radio" name="q1" value="5"> 🏆 Comprehensive framework with C-suite and board oversight</label>
+                                        <label><input type="radio" name="q1" value="3"> 📋 Basic framework with management oversight</label>
+                                        <label><input type="radio" name="q1" value="1"> 📝 Ad-hoc security policies and procedures</label>
+                                        <label><input type="radio" name="q1" value="0"> ❌ No formal cybersecurity governance</label>
                                     </div>
                                 </div>
                                 <div class="question-item">
-                                    <h4>How frequently do you conduct risk assessments?</h4>
+                                    <h4>How frequently does your organization conduct comprehensive risk assessments?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q2" value="5"> Continuously with automated tools</label>
-                                        <label><input type="radio" name="q2" value="4"> Quarterly assessments</label>
-                                        <label><input type="radio" name="q2" value="2"> Annual assessments</label>
-                                        <label><input type="radio" name="q2" value="0"> Rarely or never</label>
+                                        <label><input type="radio" name="q2" value="5"> 🔄 Continuous risk monitoring with automated tools</label>
+                                        <label><input type="radio" name="q2" value="4"> 📅 Quarterly risk assessments</label>
+                                        <label><input type="radio" name="q2" value="2"> 📆 Annual risk assessments</label>
+                                        <label><input type="radio" name="q2" value="0"> ⚠️ Rarely or never conduct formal assessments</label>
                                     </div>
                                 </div>
                                 <div class="question-item">
                                     <h4>Is there a designated Chief Information Security Officer (CISO) or equivalent role?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q7" value="5"> Dedicated CISO with security team</label>
-                                        <label><input type="radio" name="q7" value="3"> Part-time security lead</label>
-                                        <label><input type="radio" name="q7" value="1"> Security responsibilities distributed</label>
-                                        <label><input type="radio" name="q7" value="0"> No designated security role</label>
+                                        <label><input type="radio" name="q7" value="5"> 👨‍💼 Dedicated CISO with full security team</label>
+                                        <label><input type="radio" name="q7" value="3"> 👨‍💻 Part-time security lead or consultant</label>
+                                        <label><input type="radio" name="q7" value="1"> 🤝 Security responsibilities distributed across teams</label>
+                                        <label><input type="radio" name="q7" value="0"> ❌ No designated security leadership role</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="assessment-questions" id="identity" style="display: none;">
-                            <h3>Identity & Access Management</h3>
+                            <h3>🔐 Identity & Access Management</h3>
                             <div class="question-group">
                                 <div class="question-item">
-                                    <h4>Do you implement multi-factor authentication (MFA) for all users?</h4>
+                                    <h4>Do you implement multi-factor authentication (MFA) across your organization?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q3" value="5"> MFA enforced for all accounts</label>
-                                        <label><input type="radio" name="q3" value="3"> MFA for privileged accounts only</label>
-                                        <label><input type="radio" name="q3" value="1"> MFA partially implemented</label>
-                                        <label><input type="radio" name="q3" value="0"> No MFA implementation</label>
+                                        <label><input type="radio" name="q3" value="5"> 🛡️ MFA enforced for all accounts with adaptive authentication</label>
+                                        <label><input type="radio" name="q3" value="3"> 🔑 MFA for privileged and administrative accounts</label>
+                                        <label><input type="radio" name="q3" value="1"> ⚡ MFA partially implemented for some systems</label>
+                                        <label><input type="radio" name="q3" value="0"> ❌ No MFA implementation</label>
                                     </div>
                                 </div>
                                 <div class="question-item">
-                                    <h4>Do you have a formal access review process?</h4>
+                                    <h4>Do you have a formal access review and certification process?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q8" value="5"> Automated quarterly access reviews</label>
-                                        <label><input type="radio" name="q8" value="3"> Manual semi-annual reviews</label>
-                                        <label><input type="radio" name="q8" value="1"> Ad-hoc access reviews</label>
-                                        <label><input type="radio" name="q8" value="0"> No access review process</label>
+                                        <label><input type="radio" name="q8" value="5"> 🔄 Automated quarterly access reviews with role-based controls</label>
+                                        <label><input type="radio" name="q8" value="3"> 📋 Manual semi-annual access reviews</label>
+                                        <label><input type="radio" name="q8" value="1"> 📝 Ad-hoc access reviews when needed</label>
+                                        <label><input type="radio" name="q8" value="0"> ❌ No formal access review process</label>
                                     </div>
                                 </div>
                                 <div class="question-item">
-                                    <h4>Is privileged access management (PAM) implemented?</h4>
+                                    <h4>Is privileged access management (PAM) implemented with session monitoring?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q9" value="5"> Full PAM solution with session recording</label>
-                                        <label><input type="radio" name="q9" value="3"> Basic privileged account controls</label>
-                                        <label><input type="radio" name="q9" value="1"> Limited privileged access controls</label>
-                                        <label><input type="radio" name="q9" value="0"> No PAM implementation</label>
+                                        <label><input type="radio" name="q9" value="5"> 🎥 Full PAM solution with session recording and just-in-time access</label>
+                                        <label><input type="radio" name="q9" value="3"> 🔐 Basic privileged account controls and monitoring</label>
+                                        <label><input type="radio" name="q9" value="1"> ⚡ Limited privileged access controls</label>
+                                        <label><input type="radio" name="q9" value="0"> ❌ No PAM implementation</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="assessment-questions" id="data" style="display: none;">
-                            <h3>Data Protection</h3>
+                            <h3>🛡️ Data Protection & Privacy</h3>
                             <div class="question-group">
                                 <div class="question-item">
-                                    <h4>Is sensitive data encrypted both at rest and in transit?</h4>
+                                    <h4>Is sensitive data encrypted both at rest and in transit with proper key management?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q4" value="5"> Full encryption with key management</label>
-                                        <label><input type="radio" name="q4" value="3"> Partial encryption implementation</label>
-                                        <label><input type="radio" name="q4" value="1"> Basic encryption only</label>
-                                        <label><input type="radio" name="q4" value="0"> No encryption strategy</label>
+                                        <label><input type="radio" name="q4" value="5"> 🔒 Full encryption with hardware security modules (HSM) and key rotation</label>
+                                        <label><input type="radio" name="q4" value="3"> 🔐 Standard encryption with centralized key management</label>
+                                        <label><input type="radio" name="q4" value="1"> ⚡ Basic encryption implementation</label>
+                                        <label><input type="radio" name="q4" value="0"> ❌ No comprehensive encryption strategy</label>
                                     </div>
                                 </div>
                                 <div class="question-item">
-                                    <h4>Do you have a data classification and handling policy?</h4>
+                                    <h4>Do you have a data classification and handling policy with automated enforcement?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q10" value="5"> Comprehensive classification with automated enforcement</label>
-                                        <label><input type="radio" name="q10" value="3"> Basic classification policy</label>
-                                        <label><input type="radio" name="q10" value="1"> Informal data handling guidelines</label>
-                                        <label><input type="radio" name="q10" value="0"> No data classification</label>
+                                        <label><input type="radio" name="q10" value="5"> 🏷️ Comprehensive classification with automated DLP and labeling</label>
+                                        <label><input type="radio" name="q10" value="3"> 📋 Basic classification policy with manual enforcement</label>
+                                        <label><input type="radio" name="q10" value="1"> 📝 Informal data handling guidelines</label>
+                                        <label><input type="radio" name="q10" value="0"> ❌ No data classification framework</label>
                                     </div>
                                 </div>
                                 <div class="question-item">
-                                    <h4>Are data backups regularly tested and secured?</h4>
+                                    <h4>Are data backups regularly tested, secured, and include disaster recovery capabilities?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q11" value="5"> Automated, tested, and encrypted backups</label>
-                                        <label><input type="radio" name="q11" value="3"> Regular backups with periodic testing</label>
-                                        <label><input type="radio" name="q11" value="1"> Basic backup process</label>
-                                        <label><input type="radio" name="q11" value="0"> No backup strategy</label>
+                                        <label><input type="radio" name="q11" value="5"> 💾 Automated, immutable backups with tested disaster recovery plans</label>
+                                        <label><input type="radio" name="q11" value="3"> 🔄 Regular backups with periodic recovery testing</label>
+                                        <label><input type="radio" name="q11" value="1"> 📦 Basic backup process without regular testing</label>
+                                        <label><input type="radio" name="q11" value="0"> ❌ No comprehensive backup and recovery strategy</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="assessment-questions" id="network" style="display: none;">
-                            <h3>Network Security</h3>
+                            <h3>🌐 Network Security & Zero Trust</h3>
                             <div class="question-group">
                                 <div class="question-item">
-                                    <h4>Do you have network segmentation and micro-segmentation in place?</h4>
+                                    <h4>Do you have network segmentation and micro-segmentation with zero trust principles?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q5" value="5"> Advanced micro-segmentation with zero trust</label>
-                                        <label><input type="radio" name="q5" value="3"> Basic network segmentation</label>
-                                        <label><input type="radio" name="q5" value="1"> Limited segmentation</label>
-                                        <label><input type="radio" name="q5" value="0"> Flat network architecture</label>
+                                        <label><input type="radio" name="q5" value="5"> 🎯 Advanced micro-segmentation with zero trust architecture</label>
+                                        <label><input type="radio" name="q5" value="3"> 🛡️ Basic network segmentation with firewall controls</label>
+                                        <label><input type="radio" name="q5" value="1"> ⚡ Limited network segmentation</label>
+                                        <label><input type="radio" name="q5" value="0"> ❌ Flat network architecture</label>
                                     </div>
                                 </div>
                                 <div class="question-item">
-                                    <h4>Are intrusion detection and prevention systems (IDS/IPS) deployed?</h4>
+                                    <h4>Are intrusion detection and prevention systems (IDS/IPS) deployed with AI/ML capabilities?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q12" value="5"> Advanced threat detection with AI/ML</label>
-                                        <label><input type="radio" name="q12" value="3"> Traditional IDS/IPS deployed</label>
-                                        <label><input type="radio" name="q12" value="1"> Basic network monitoring</label>
-                                        <label><input type="radio" name="q12" value="0"> No intrusion detection</label>
+                                        <label><input type="radio" name="q12" value="5"> 🤖 Advanced threat detection with AI/ML and behavioral analytics</label>
+                                        <label><input type="radio" name="q12" value="3"> 🛡️ Traditional IDS/IPS with signature-based detection</label>
+                                        <label><input type="radio" name="q12" value="1"> 📊 Basic network monitoring and logging</label>
+                                        <label><input type="radio" name="q12" value="0"> ❌ No intrusion detection capabilities</label>
                                     </div>
                                 </div>
                                 <div class="question-item">
-                                    <h4>Is network traffic regularly monitored and analyzed?</h4>
+                                    <h4>Is network traffic regularly monitored and analyzed with SIEM integration?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q13" value="5"> Real-time traffic analysis with SIEM integration</label>
-                                        <label><input type="radio" name="q13" value="3"> Regular traffic monitoring</label>
-                                        <label><input type="radio" name="q13" value="1"> Basic network logs review</label>
-                                        <label><input type="radio" name="q13" value="0"> No traffic monitoring</label>
+                                        <label><input type="radio" name="q13" value="5"> 📊 Real-time traffic analysis with SIEM and SOAR integration</label>
+                                        <label><input type="radio" name="q13" value="3"> 🔍 Regular traffic monitoring with alerting</label>
+                                        <label><input type="radio" name="q13" value="1"> 📝 Basic network logs review</label>
+                                        <label><input type="radio" name="q13" value="0"> ❌ No comprehensive traffic monitoring</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="assessment-questions" id="incident" style="display: none;">
-                            <h3>Incident Response</h3>
+                            <h3>🚨 Incident Response & Recovery</h3>
                             <div class="question-group">
                                 <div class="question-item">
-                                    <h4>Do you have a tested incident response plan?</h4>
+                                    <h4>Do you have a tested incident response plan with regular tabletop exercises?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q6" value="5"> Regularly tested and updated plan with tabletop exercises</label>
-                                        <label><input type="radio" name="q6" value="3"> Plan exists but not regularly tested</label>
-                                        <label><input type="radio" name="q6" value="1"> Basic plan in development</label>
-                                        <label><input type="radio" name="q6" value="0"> No incident response plan</label>
+                                        <label><input type="radio" name="q6" value="5"> 🎭 Comprehensive IR plan with quarterly tabletop exercises and purple team testing</label>
+                                        <label><input type="radio" name="q6" value="3"> 📋 Documented IR plan with annual testing</label>
+                                        <label><input type="radio" name="q6" value="1"> 📝 Basic incident response procedures</label>
+                                        <label><input type="radio" name="q6" value="0"> ❌ No formal incident response capability</label>
                                     </div>
                                 </div>
                                 <div class="question-item">
-                                    <h4>Is there a dedicated incident response team?</h4>
+                                    <h4>Is there a dedicated Security Operations Center (SOC) or incident response team?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q14" value="5"> 24/7 SOC with dedicated IR team</label>
-                                        <label><input type="radio" name="q14" value="3"> Part-time IR team with defined roles</label>
-                                        <label><input type="radio" name="q14" value="1"> Ad-hoc incident response</label>
-                                        <label><input type="radio" name="q14" value="0"> No dedicated IR capability</label>
+                                        <label><input type="radio" name="q14" value="5"> 🎯 24/7 SOC with dedicated IR team and threat hunting capabilities</label>
+                                        <label><input type="radio" name="q14" value="3"> 👥 Part-time IR team with defined roles and escalation</label>
+                                        <label><input type="radio" name="q14" value="1"> ⚡ Ad-hoc incident response with basic procedures</label>
+                                        <label><input type="radio" name="q14" value="0"> ❌ No dedicated incident response capability</label>
                                     </div>
                                 </div>
                                 <div class="question-item">
-                                    <h4>Are security incidents tracked and reported to management?</h4>
+                                    <h4>Are security incidents tracked, analyzed, and reported to executive leadership?</h4>
                                     <div class="answer-options">
-                                        <label><input type="radio" name="q15" value="5"> Comprehensive incident tracking with executive reporting</label>
-                                        <label><input type="radio" name="q15" value="3"> Basic incident logging and reporting</label>
-                                        <label><input type="radio" name="q15" value="1"> Informal incident tracking</label>
-                                        <label><input type="radio" name="q15" value="0"> No incident tracking</label>
+                                        <label><input type="radio" name="q15" value="5"> 📊 Comprehensive incident tracking with executive dashboards and lessons learned</label>
+                                        <label><input type="radio" name="q15" value="3"> 📋 Basic incident logging with management reporting</label>
+                                        <label><input type="radio" name="q15" value="1"> 📝 Informal incident tracking</label>
+                                        <label><input type="radio" name="q15" value="0"> ❌ No incident tracking or reporting</label>
                                     </div>
                                 </div>
                             </div>
@@ -367,50 +443,50 @@
                 </div>
             </section>
 
-            <!-- Frameworks Section -->
+            <!-- Enhanced Frameworks Section -->
             <section id="frameworks" class="section">
                 <div class="section-header">
-                    <h1>Security Frameworks</h1>
-                    <p>Industry-standard frameworks and compliance mapping</p>
+                    <h1>🏛️ Security Frameworks</h1>
+                    <p>Industry-leading frameworks and compliance mapping with real-time assessment</p>
                 </div>
 
                 <div class="frameworks-grid">
                     <div class="framework-card">
                         <div class="framework-header">
-                            <h3>NIST Cybersecurity Framework</h3>
+                            <h3>🇺🇸 NIST Cybersecurity Framework 2.0</h3>
                             <div class="framework-score">78%</div>
                         </div>
                         <div class="framework-functions">
                             <div class="function-item">
-                                <span>Identify</span>
+                                <span>🎯 Identify</span>
                                 <div class="progress-bar">
                                     <div class="progress-fill" style="width: 85%"></div>
                                 </div>
                                 <span>85%</span>
                             </div>
                             <div class="function-item">
-                                <span>Protect</span>
+                                <span>🛡️ Protect</span>
                                 <div class="progress-bar">
                                     <div class="progress-fill" style="width: 72%"></div>
                                 </div>
                                 <span>72%</span>
                             </div>
                             <div class="function-item">
-                                <span>Detect</span>
+                                <span>🔍 Detect</span>
                                 <div class="progress-bar">
                                     <div class="progress-fill" style="width: 68%"></div>
                                 </div>
                                 <span>68%</span>
                             </div>
                             <div class="function-item">
-                                <span>Respond</span>
+                                <span>⚡ Respond</span>
                                 <div class="progress-bar">
                                     <div class="progress-fill" style="width: 80%"></div>
                                 </div>
                                 <span>80%</span>
                             </div>
                             <div class="function-item">
-                                <span>Recover</span>
+                                <span>🔄 Recover</span>
                                 <div class="progress-bar">
                                     <div class="progress-fill" style="width: 75%"></div>
                                 </div>
@@ -421,51 +497,51 @@
 
                     <div class="framework-card">
                         <div class="framework-header">
-                            <h3>ISO 27001</h3>
+                            <h3>🌍 ISO 27001:2022</h3>
                             <div class="framework-score">82%</div>
                         </div>
                         <div class="framework-domains">
                             <div class="domain-item">
-                                <span>Information Security Policies</span>
-                                <div class="status-badge implemented">Implemented</div>
+                                <span>📋 Information Security Policies</span>
+                                <div class="status-badge implemented">✅ Implemented</div>
                             </div>
                             <div class="domain-item">
-                                <span>Risk Management</span>
-                                <div class="status-badge partial">Partial</div>
+                                <span>⚠️ Risk Management</span>
+                                <div class="status-badge partial">🔄 In Progress</div>
                             </div>
                             <div class="domain-item">
-                                <span>Asset Management</span>
-                                <div class="status-badge implemented">Implemented</div>
+                                <span>💼 Asset Management</span>
+                                <div class="status-badge implemented">✅ Implemented</div>
                             </div>
                             <div class="domain-item">
-                                <span>Access Control</span>
-                                <div class="status-badge needs-work">Needs Work</div>
+                                <span>🔐 Access Control</span>
+                                <div class="status-badge needs-work">🚧 Needs Work</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="framework-card">
                         <div class="framework-header">
-                            <h3>CIS Controls v8</h3>
+                            <h3>🛡️ CIS Controls v8</h3>
                             <div class="framework-score">74%</div>
                         </div>
                         <div class="cis-implementation">
                             <div class="cis-tier">
-                                <h4>Implementation Group 1 (Basic)</h4>
+                                <h4>🥉 Implementation Group 1 (Basic)</h4>
                                 <div class="progress-bar">
                                     <div class="progress-fill" style="width: 90%"></div>
                                 </div>
                                 <span>90% Complete</span>
                             </div>
                             <div class="cis-tier">
-                                <h4>Implementation Group 2 (Foundational)</h4>
+                                <h4>🥈 Implementation Group 2 (Foundational)</h4>
                                 <div class="progress-bar">
                                     <div class="progress-fill" style="width: 65%"></div>
                                 </div>
                                 <span>65% Complete</span>
                             </div>
                             <div class="cis-tier">
-                                <h4>Implementation Group 3 (Organizational)</h4>
+                                <h4>🥇 Implementation Group 3 (Organizational)</h4>
                                 <div class="progress-bar">
                                     <div class="progress-fill" style="width: 45%"></div>
                                 </div>
@@ -476,11 +552,11 @@
                 </div>
             </section>
 
-            <!-- Compliance Section -->
+            <!-- Enhanced Compliance Section -->
             <section id="compliance" class="section">
                 <div class="section-header">
-                    <h1>Regulatory Compliance</h1>
-                    <p>Track compliance across multiple regulatory requirements</p>
+                    <h1>✅ Regulatory Compliance</h1>
+                    <p>Track compliance across multiple regulatory requirements with automated monitoring</p>
                 </div>
 
                 <div class="compliance-dashboard">
@@ -496,115 +572,129 @@
 
                     <div class="regulations-grid">
                         <div class="regulation-card">
-                            <h3>SOX Compliance</h3>
+                            <h3>📊 SOX Compliance</h3>
                             <div class="regulation-status compliant">
                                 <i data-lucide="check-circle"></i>
-                                <span>Compliant</span>
+                                <span>✅ Compliant</span>
                             </div>
                             <div class="regulation-details">
-                                <p>Last Assessment: Q4 2024</p>
-                                <p>Next Review: Q1 2025</p>
+                                <p>🗓️ Last Assessment: Q4 2024</p>
+                                <p>📅 Next Review: Q1 2025</p>
+                                <p>🎯 Controls: 45/45 implemented</p>
                             </div>
                         </div>
 
                         <div class="regulation-card">
-                            <h3>GDPR</h3>
+                            <h3>🇪🇺 GDPR</h3>
                             <div class="regulation-status partial">
                                 <i data-lucide="alert-circle"></i>
-                                <span>Partial Compliance</span>
+                                <span>🔄 Partial Compliance</span>
                             </div>
                             <div class="regulation-details">
-                                <p>Issues: 3 open items</p>
-                                <p>Due Date: End of Q1 2025</p>
+                                <p>⚠️ Open Issues: 3 items</p>
+                                <p>📅 Due Date: End of Q1 2025</p>
+                                <p>🎯 Privacy controls: 87% complete</p>
                             </div>
                         </div>
 
                         <div class="regulation-card">
-                            <h3>HIPAA</h3>
+                            <h3>🏥 HIPAA</h3>
                             <div class="regulation-status compliant">
                                 <i data-lucide="check-circle"></i>
-                                <span>Compliant</span>
+                                <span>✅ Compliant</span>
                             </div>
                             <div class="regulation-details">
-                                <p>Last Assessment: Q3 2024</p>
-                                <p>Next Review: Q3 2025</p>
+                                <p>🗓️ Last Assessment: Q3 2024</p>
+                                <p>📅 Next Review: Q3 2025</p>
+                                <p>🛡️ PHI controls: All active</p>
                             </div>
                         </div>
 
                         <div class="regulation-card">
-                            <h3>PCI DSS</h3>
+                            <h3>💳 PCI DSS</h3>
                             <div class="regulation-status non-compliant">
                                 <i data-lucide="x-circle"></i>
-                                <span>Non-Compliant</span>
+                                <span>🚨 Non-Compliant</span>
                             </div>
                             <div class="regulation-details">
-                                <p>Critical Issues: 5</p>
-                                <p>Remediation Plan: In Progress</p>
+                                <p>🔥 Critical Issues: 5 findings</p>
+                                <p>🔄 Remediation: In Progress</p>
+                                <p>📅 Target: End of Q2 2025</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Reports Section -->
+            <!-- Enhanced Reports Section -->
             <section id="reports" class="section">
                 <div class="section-header">
-                    <h1>Executive Reports</h1>
-                    <p>Generate comprehensive security reports for stakeholders</p>
+                    <h1>📄 Executive Reports</h1>
+                    <p>Generate comprehensive security reports for stakeholders with AI-powered insights</p>
                 </div>
 
                 <div class="reports-container">
                     <div class="report-templates">
-                        <h3>Report Templates</h3>
+                        <h3>🎯 Report Templates</h3>
                         <div class="template-grid">
                             <div class="template-card">
                                 <i data-lucide="file-text"></i>
                                 <h4>Executive Summary</h4>
-                                <p>High-level security posture overview</p>
-                                <button class="btn-primary generate-report" data-template="executive">Generate Report</button>
+                                <p>C-suite ready security posture overview with KPIs and recommendations</p>
+                                <button class="btn-primary generate-report" data-template="executive">🚀 Generate Report</button>
                             </div>
                             <div class="template-card">
                                 <i data-lucide="bar-chart"></i>
                                 <h4>Risk Assessment</h4>
-                                <p>Detailed risk analysis and mitigation</p>
-                                <button class="btn-primary generate-report" data-template="risk">Generate Report</button>
+                                <p>Detailed threat analysis with mitigation strategies and timelines</p>
+                                <button class="btn-primary generate-report" data-template="risk">🎯 Generate Report</button>
                             </div>
                             <div class="template-card">
                                 <i data-lucide="shield"></i>
                                 <h4>Compliance Report</h4>
-                                <p>Regulatory compliance status</p>
-                                <button class="btn-primary generate-report" data-template="compliance">Generate Report</button>
+                                <p>Multi-framework compliance status with audit trails</p>
+                                <button class="btn-primary generate-report" data-template="compliance">✅ Generate Report</button>
                             </div>
                             <div class="template-card">
                                 <i data-lucide="trending-up"></i>
                                 <h4>Maturity Assessment</h4>
-                                <p>Security maturity progression</p>
-                                <button class="btn-primary generate-report" data-template="maturity">Generate Report</button>
+                                <p>Security maturity progression with roadmap recommendations</p>
+                                <button class="btn-primary generate-report" data-template="maturity">📈 Generate Report</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="recent-reports">
-                        <h3>Recent Reports</h3>
+                        <h3>📊 Recent Reports</h3>
                         <div class="reports-list">
                             <div class="report-item">
                                 <div class="report-info">
-                                    <h4>Q4 2024 Security Posture Report</h4>
-                                    <p>Generated on Jan 15, 2025</p>
+                                    <h4>🎯 Q4 2024 Security Posture Report</h4>
+                                    <p>📅 Generated on Jan 15, 2025 • 📄 32 pages • 🎯 Executive Level</p>
                                 </div>
                                 <div class="report-actions">
-                                    <button class="btn-secondary">Download PDF</button>
-                                    <button class="btn-secondary">Share</button>
+                                    <button class="btn-secondary">📥 Download PDF</button>
+                                    <button class="btn-secondary">📤 Share</button>
                                 </div>
                             </div>
                             <div class="report-item">
                                 <div class="report-info">
-                                    <h4>NIST Framework Assessment</h4>
-                                    <p>Generated on Jan 10, 2025</p>
+                                    <h4>🏛️ NIST Framework Assessment</h4>
+                                    <p>📅 Generated on Jan 10, 2025 • 📄 28 pages • 🔍 Technical Detail</p>
                                 </div>
                                 <div class="report-actions">
-                                    <button class="btn-secondary">Download PDF</button>
-                                    <button class="btn-secondary">Share</button>
+                                    <button class="btn-secondary">📥 Download PDF</button>
+                                    <button class="btn-secondary">📤 Share</button>
+                                </div>
+                            </div>
+                            <div class="report-item">
+                                <div class="report-info">
+                                    <h4>⚠️ Critical Risk Analysis</h4>
+                                    <p>📅 Generated on Jan 8, 2025 • 📄 15 pages • 🚨 Urgent Action</p>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="btn-secondary">📥 Download PDF</button>
+                                    <button class="btn-secondary">📤 Share</button>
                                 </div>
                             </div>
                         </div>
@@ -618,18 +708,36 @@
     <script src="./assets/js/app.js"></script>
     
     <script>
-        // Initialize app after everything loads
+        // Enhanced initialization with spectacular loading sequence
         window.addEventListener('load', function() {
-            console.log('Page loaded, hiding loading screen...');
-            // Hide loading screen
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('app').style.display = 'block';
+            console.log('🔥 Page loaded, initializing spectacular interface...');
             
-            // Initialize icons
+            // Extended loading for dramatic effect
+            setTimeout(() => {
+                document.getElementById('loading').style.transform = 'scale(0.8)';
+                document.getElementById('loading').style.opacity = '0';
+                
+                setTimeout(() => {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('app').style.display = 'block';
+                    
+                    // Dramatic app entrance
+                    document.getElementById('app').style.opacity = '0';
+                    document.getElementById('app').style.transform = 'scale(0.95)';
+                    
+                    setTimeout(() => {
+                        document.getElementById('app').style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                        document.getElementById('app').style.opacity = '1';
+                        document.getElementById('app').style.transform = 'scale(1)';
+                    }, 100);
+                }, 500);
+            }, 2000);
+            
+            // Initialize icons with enhanced effects
             if (typeof lucide !== 'undefined') {
                 try {
                     lucide.createIcons();
-                    console.log('✅ Icons initialized');
+                    console.log('✨ Icons initialized with enhancements');
                 } catch (e) {
                     console.warn('⚠️ Icon initialization failed:', e);
                 }
@@ -637,31 +745,66 @@
                 console.warn('⚠️ Lucide not available');
             }
             
-            // Initialize app if function exists
-            if (typeof initApp === 'function') {
-                console.log('🚀 Calling initApp...');
-                initApp();
-            } else {
-                console.error('❌ initApp function not found');
-            }
+            // Initialize app with delay for dramatic effect
+            setTimeout(() => {
+                if (typeof initApp === 'function') {
+                    console.log('🚀 Launching Enhanced CyberSecurity Compass...');
+                    initApp();
+                } else {
+                    console.error('❌ initApp function not found');
+                }
+            }, 3000);
         });
         
-        // Error handling
+        // Enhanced error handling with user-friendly messages
         window.addEventListener('error', function(e) {
-            console.error('❌ Application error:', e.error);
+            console.error('🔥 Application error:', e.error);
             const loading = document.getElementById('loading');
-            if (loading) {
-                loading.innerHTML = '<div style="color: red; text-align: center;"><div>⚠️ Error loading application</div><div style="font-size: 0.8rem; margin-top: 1rem;">Please refresh the page or check console for details</div></div>';
+            if (loading && loading.style.display !== 'none') {
+                loading.innerHTML = `
+                    <div style="color: #ff4757; text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">⚠️</div>
+                        <div style="font-size: 1.5rem; margin-bottom: 1rem;">Oops! Something went wrong</div>
+                        <div style="font-size: 1rem; margin-bottom: 2rem; opacity: 0.8;">Please refresh the page or check your internet connection</div>
+                        <button onclick="location.reload()" style="
+                            background: linear-gradient(135deg, #ff4757, #ff3838);
+                            color: white;
+                            border: none;
+                            padding: 1rem 2rem;
+                            border-radius: 8px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        ">🔄 Reload Application</button>
+                    </div>
+                `;
             }
         });
         
-        // Debug function accessible from console
-        window.debugAssessment = function() {
-            console.log('=== ASSESSMENT DEBUG ===');
-            console.log('Categories:', document.querySelectorAll('.category-item').length);
-            console.log('Questions:', document.querySelectorAll('.assessment-questions').length);
-            console.log('Active category:', document.querySelector('.category-item.active')?.textContent);
-            console.log('Visible questions:', document.querySelector('.assessment-questions[style*="block"]')?.id);
+        // Global debug functions accessible from console
+        window.debugAll = function() {
+            console.log('=== 🔍 GLOBAL DEBUG INFO ===');
+            console.log('App initialized:', typeof window.initApp === 'function');
+            console.log('Lucide available:', typeof lucide !== 'undefined');
+            console.log('Chart.js available:', typeof Chart !== 'undefined');
+            console.log('Assessment categories:', document.querySelectorAll('.category-item').length);
+            console.log('Assessment questions:', document.querySelectorAll('.assessment-questions').length);
+            console.log('Active section:', document.querySelector('.section.active')?.id);
+            
+            if (typeof window.testAssessment === 'function') {
+                window.testAssessment();
+            }
+        };
+        
+        window.triggerDemo = function() {
+            console.log('🎭 Starting demo mode...');
+            if (typeof window.showNotification === 'function') {
+                window.showNotification('🎭 Demo mode activated! Watch the magic happen...', 'info');
+                
+                setTimeout(() => window.showNotification('🎯 Simulating threat detection...', 'warning'), 2000);
+                setTimeout(() => window.showNotification('🛡️ Activating defense protocols...', 'info'), 4000);
+                setTimeout(() => window.showNotification('✅ All systems secure! Demo complete.', 'success'), 6000);
+            }
         };
     </script>
 </body>
