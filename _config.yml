@@ -1,31 +1,41 @@
-# GitHub Pages Configuration
+# Disable Jekyll processing for pure static site
+markdown: kramdown
+highlighter: rouge
+
+# Site settings
 title: CyberSecurity Compass
-description: Advanced cybersecurity assessment and compliance framework for enterprise environments
+description: Advanced cybersecurity assessment and compliance framework
 url: "https://bharathk2498.github.io"
 baseurl: "/CyberSecurityCompass"
 
-# Theme
-theme: minima
+# Disable Jekyll processing of assets
+keep_files:
+  - assets
 
-# Plugins
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
+# Include all files
+include:
+  - _config.yml
+  - assets
+  - "*.html"
+  - "*.js"
+  - "*.css"
 
-# Exclude from processing
+# Exclude unwanted files
 exclude:
-  - node_modules/
-  - client/
-  - server/
-  - shared/
-  - README.md
+  - node_modules
+  - client
+  - server  
+  - shared
   - Gemfile
   - Gemfile.lock
   - package.json
   - package-lock.json
 
-# Include files
-include:
-  - assets/
-  - _config.yml
+# Plugins
+plugins:
+  - jekyll-relative-links
+
+# Relative links
+relative_links:
+  enabled: true
+  collections: false

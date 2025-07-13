@@ -5,15 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberSecurity Compass | Enterprise Security Framework</title>
     <meta name="description" content="Advanced cybersecurity assessment and compliance framework for enterprise environments">
-    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMOCA2VjEwQzggMTEuNzQgOS40OSAxNS4yIDEyIDE5QzE0LjUxIDE1LjIgMTYgMTEuNzQgMTYgMTBWNkwxMiAyWiIgZmlsbD0iIzAwNjZjYyIvPgo8L3N2Zz4K">
+    
+    <!-- External CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+    
+    <!-- External Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        /* Critical CSS for immediate load */
+        .app-container { min-height: 100vh; }
+        .loading { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            font-family: 'Inter', sans-serif;
+        }
+        .loading.hidden { display: none; }
+    </style>
 </head>
 <body>
-    <div class="app-container">
+    <!-- Loading Screen -->
+    <div id="loading" class="loading">
+        <div>Loading CyberSecurity Compass...</div>
+    </div>
+    
+    <div class="app-container" id="app" style="display: none;">
         <!-- Navigation -->
         <nav class="navbar">
             <div class="nav-brand">
@@ -21,11 +48,11 @@
                 <span>CyberSecurity Compass</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#dashboard" class="nav-link active">Dashboard</a></li>
-                <li><a href="#assessment" class="nav-link">Assessment</a></li>
-                <li><a href="#frameworks" class="nav-link">Frameworks</a></li>
-                <li><a href="#compliance" class="nav-link">Compliance</a></li>
-                <li><a href="#reports" class="nav-link">Reports</a></li>
+                <li><a href="#dashboard" class="nav-link active" data-section="dashboard">Dashboard</a></li>
+                <li><a href="#assessment" class="nav-link" data-section="assessment">Assessment</a></li>
+                <li><a href="#frameworks" class="nav-link" data-section="frameworks">Frameworks</a></li>
+                <li><a href="#compliance" class="nav-link" data-section="compliance">Compliance</a></li>
+                <li><a href="#reports" class="nav-link" data-section="reports">Reports</a></li>
             </ul>
         </nav>
 
@@ -86,11 +113,11 @@
                 <div class="charts-row">
                     <div class="chart-container">
                         <h3>Security Posture Trends</h3>
-                        <canvas id="postureChart"></canvas>
+                        <canvas id="postureChart" width="400" height="200"></canvas>
                     </div>
                     <div class="chart-container">
                         <h3>Framework Compliance</h3>
-                        <canvas id="complianceChart"></canvas>
+                        <canvas id="complianceChart" width="300" height="200"></canvas>
                     </div>
                 </div>
 
@@ -153,7 +180,7 @@
                     </div>
 
                     <div class="assessment-content">
-                        <div class="assessment-questions" id="governance">
+                        <div class="assessment-questions active" id="governance">
                             <h3>Governance & Risk Management</h3>
                             <div class="question-group">
                                 <div class="question-item">
@@ -172,6 +199,67 @@
                                         <label><input type="radio" name="q2" value="4"> Quarterly assessments</label>
                                         <label><input type="radio" name="q2" value="2"> Annual assessments</label>
                                         <label><input type="radio" name="q2" value="0"> Rarely or never</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Hidden assessment sections -->
+                        <div class="assessment-questions" id="identity" style="display: none;">
+                            <h3>Identity & Access Management</h3>
+                            <div class="question-group">
+                                <div class="question-item">
+                                    <h4>Do you implement multi-factor authentication (MFA) for all users?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q3" value="5"> MFA enforced for all accounts</label>
+                                        <label><input type="radio" name="q3" value="3"> MFA for privileged accounts only</label>
+                                        <label><input type="radio" name="q3" value="1"> MFA partially implemented</label>
+                                        <label><input type="radio" name="q3" value="0"> No MFA implementation</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="assessment-questions" id="data" style="display: none;">
+                            <h3>Data Protection</h3>
+                            <div class="question-group">
+                                <div class="question-item">
+                                    <h4>Is sensitive data encrypted both at rest and in transit?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q4" value="5"> Full encryption with key management</label>
+                                        <label><input type="radio" name="q4" value="3"> Partial encryption implementation</label>
+                                        <label><input type="radio" name="q4" value="1"> Basic encryption only</label>
+                                        <label><input type="radio" name="q4" value="0"> No encryption strategy</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="assessment-questions" id="network" style="display: none;">
+                            <h3>Network Security</h3>
+                            <div class="question-group">
+                                <div class="question-item">
+                                    <h4>Do you have network segmentation and micro-segmentation in place?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q5" value="5"> Advanced micro-segmentation</label>
+                                        <label><input type="radio" name="q5" value="3"> Basic network segmentation</label>
+                                        <label><input type="radio" name="q5" value="1"> Limited segmentation</label>
+                                        <label><input type="radio" name="q5" value="0"> Flat network architecture</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="assessment-questions" id="incident" style="display: none;">
+                            <h3>Incident Response</h3>
+                            <div class="question-group">
+                                <div class="question-item">
+                                    <h4>Do you have a tested incident response plan?</h4>
+                                    <div class="answer-options">
+                                        <label><input type="radio" name="q6" value="5"> Regularly tested and updated plan</label>
+                                        <label><input type="radio" name="q6" value="3"> Plan exists but not regularly tested</label>
+                                        <label><input type="radio" name="q6" value="1"> Basic plan in development</label>
+                                        <label><input type="radio" name="q6" value="0"> No incident response plan</label>
                                     </div>
                                 </div>
                             </div>
@@ -299,7 +387,7 @@
                 <div class="compliance-dashboard">
                     <div class="compliance-overview">
                         <div class="compliance-score-circle">
-                            <canvas id="complianceScoreChart"></canvas>
+                            <canvas id="complianceScoreChart" width="200" height="200"></canvas>
                             <div class="score-center">
                                 <span class="score-value">87%</span>
                                 <span class="score-label">Overall Compliance</span>
@@ -374,25 +462,25 @@
                                 <i data-lucide="file-text"></i>
                                 <h4>Executive Summary</h4>
                                 <p>High-level security posture overview</p>
-                                <button class="btn-primary">Generate Report</button>
+                                <button class="btn-primary generate-report" data-template="executive">Generate Report</button>
                             </div>
                             <div class="template-card">
                                 <i data-lucide="bar-chart"></i>
                                 <h4>Risk Assessment</h4>
                                 <p>Detailed risk analysis and mitigation</p>
-                                <button class="btn-primary">Generate Report</button>
+                                <button class="btn-primary generate-report" data-template="risk">Generate Report</button>
                             </div>
                             <div class="template-card">
                                 <i data-lucide="shield"></i>
                                 <h4>Compliance Report</h4>
                                 <p>Regulatory compliance status</p>
-                                <button class="btn-primary">Generate Report</button>
+                                <button class="btn-primary generate-report" data-template="compliance">Generate Report</button>
                             </div>
                             <div class="template-card">
                                 <i data-lucide="trending-up"></i>
                                 <h4>Maturity Assessment</h4>
                                 <p>Security maturity progression</p>
-                                <button class="btn-primary">Generate Report</button>
+                                <button class="btn-primary generate-report" data-template="maturity">Generate Report</button>
                             </div>
                         </div>
                     </div>
@@ -427,6 +515,32 @@
         </main>
     </div>
 
-    <script src="assets/js/app.js"></script>
+    <!-- Local JavaScript -->
+    <script src="./assets/js/app.js"></script>
+    
+    <script>
+        // Initialize app after everything loads
+        window.addEventListener('load', function() {
+            // Hide loading screen
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('app').style.display = 'block';
+            
+            // Initialize icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            
+            // Initialize app if function exists
+            if (typeof initApp === 'function') {
+                initApp();
+            }
+        });
+        
+        // Error handling
+        window.addEventListener('error', function(e) {
+            console.error('Application error:', e.error);
+            document.getElementById('loading').innerHTML = '<div style="color: red;">Error loading application. Please refresh the page.</div>';
+        });
+    </script>
 </body>
 </html>
