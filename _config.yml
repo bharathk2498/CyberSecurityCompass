@@ -1,0 +1,31 @@
+# GitHub Pages Configuration
+title: CyberSecurity Compass
+description: Advanced cybersecurity assessment and compliance framework for enterprise environments
+url: "https://bharathk2498.github.io"
+baseurl: "/CyberSecurityCompass"
+
+# Theme
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - node_modules/
+  - client/
+  - server/
+  - shared/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+
+# Include files
+include:
+  - assets/
+  - _config.yml
