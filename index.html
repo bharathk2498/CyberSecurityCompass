@@ -710,34 +710,28 @@
     <script>
         // Enhanced initialization with spectacular loading sequence
         window.addEventListener('load', function() {
-            console.log('🔥 Page loaded, initializing spectacular interface...');
-            
-            // Extended loading for dramatic effect
-            setTimeout(() => {
-                document.getElementById('loading').style.transform = 'scale(0.8)';
-                document.getElementById('loading').style.opacity = '0';
-                
-                setTimeout(() => {
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('app').style.display = 'block';
-                    
-                    // Dramatic app entrance
-                    document.getElementById('app').style.opacity = '0';
-                    document.getElementById('app').style.transform = 'scale(0.95)';
-                    
-                    setTimeout(() => {
-                        document.getElementById('app').style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-                        document.getElementById('app').style.opacity = '1';
-                        document.getElementById('app').style.transform = 'scale(1)';
-                    }, 100);
-                }, 500);
-            }, 2000);
+            console.log('🔥 Page loaded, initializing CyberSecurity Compass Elite...');
             
             // Initialize icons with enhanced effects
             if (typeof lucide !== 'undefined') {
                 try {
                     lucide.createIcons();
-                    console.log('✨ Icons initialized with enhancements');
+                    console.log('✨ Icons initialized with stunning effects');
+                    
+                    // Add icon hover animations
+                    setTimeout(() => {
+                        document.querySelectorAll('[data-lucide]').forEach(icon => {
+                            icon.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                            icon.addEventListener('mouseenter', () => {
+                                icon.style.transform = 'scale(1.2) rotate(10deg)';
+                                icon.style.filter = 'drop-shadow(0 0 10px currentColor)';
+                            });
+                            icon.addEventListener('mouseleave', () => {
+                                icon.style.transform = 'scale(1) rotate(0deg)';
+                                icon.style.filter = 'none';
+                            });
+                        });
+                    }, 1000);
                 } catch (e) {
                     console.warn('⚠️ Icon initialization failed:', e);
                 }
@@ -745,15 +739,12 @@
                 console.warn('⚠️ Lucide not available');
             }
             
-            // Initialize app with delay for dramatic effect
+            // Add keyboard shortcuts info
             setTimeout(() => {
-                if (typeof initApp === 'function') {
-                    console.log('🚀 Launching Enhanced CyberSecurity Compass...');
-                    initApp();
-                } else {
-                    console.error('❌ initApp function not found');
+                if (typeof window.showNotification === 'function') {
+                    window.showNotification('💡 Tip: Press Ctrl+K for global search, or try debugAll() in console!', 'info');
                 }
-            }, 3000);
+            }, 8000);
         });
         
         // Enhanced error handling with user-friendly messages
@@ -763,19 +754,28 @@
             if (loading && loading.style.display !== 'none') {
                 loading.innerHTML = `
                     <div style="color: #ff4757; text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">⚠️</div>
-                        <div style="font-size: 1.5rem; margin-bottom: 1rem;">Oops! Something went wrong</div>
-                        <div style="font-size: 1rem; margin-bottom: 2rem; opacity: 0.8;">Please refresh the page or check your internet connection</div>
+                        <div style="font-size: 4rem; margin-bottom: 1rem; animation: pulse 2s infinite;">⚠️</div>
+                        <div style="font-size: 2rem; margin-bottom: 1rem; font-weight: 700; background: linear-gradient(135deg, #ff4757, #ff3838); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            Oops! Something went wrong
+                        </div>
+                        <div style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.8; max-width: 400px; margin-left: auto; margin-right: auto;">
+                            The CyberSecurity Compass encountered an error. Please refresh the page or check your internet connection.
+                        </div>
                         <button onclick="location.reload()" style="
                             background: linear-gradient(135deg, #ff4757, #ff3838);
                             color: white;
                             border: none;
                             padding: 1rem 2rem;
-                            border-radius: 8px;
-                            font-weight: 600;
+                            border-radius: 12px;
+                            font-weight: 700;
                             cursor: pointer;
                             transition: all 0.3s ease;
-                        ">🔄 Reload Application</button>
+                            font-size: 1.1rem;
+                            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.3);
+                        " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 15px 40px rgba(255, 71, 87, 0.5)'"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(255, 71, 87, 0.3)'">
+                            🔄 Reload Application
+                        </button>
                     </div>
                 `;
             }
@@ -783,29 +783,117 @@
         
         // Global debug functions accessible from console
         window.debugAll = function() {
-            console.log('=== 🔍 GLOBAL DEBUG INFO ===');
-            console.log('App initialized:', typeof window.initApp === 'function');
-            console.log('Lucide available:', typeof lucide !== 'undefined');
-            console.log('Chart.js available:', typeof Chart !== 'undefined');
-            console.log('Assessment categories:', document.querySelectorAll('.category-item').length);
-            console.log('Assessment questions:', document.querySelectorAll('.assessment-questions').length);
-            console.log('Active section:', document.querySelector('.section.active')?.id);
+            console.log('=== 🔍 CYBERSECURITY COMPASS DEBUG INFO ===');
+            console.log('🎯 Version: CyberSecurity Compass Elite v2.0.0');
+            console.log('📊 Lucide available:', typeof lucide !== 'undefined');
+            console.log('📈 Chart.js available:', typeof Chart !== 'undefined');
+            console.log('🎛️ Assessment categories:', document.querySelectorAll('.category-item').length);
+            console.log('❓ Assessment questions:', document.querySelectorAll('.assessment-questions').length);
+            console.log('🎯 Active section:', document.querySelector('.section.active')?.id || 'none');
+            console.log('🔗 Global functions available:', Object.keys(window.cybersecurityCompass || {}));
             
             if (typeof window.testAssessment === 'function') {
+                console.log('🧪 Running assessment test...');
                 window.testAssessment();
+            }
+            
+            if (typeof window.showNotification === 'function') {
+                window.showNotification('🔍 Debug info logged to console', 'info');
             }
         };
         
         window.triggerDemo = function() {
-            console.log('🎭 Starting demo mode...');
+            console.log('🎭 Starting spectacular demo mode...');
             if (typeof window.showNotification === 'function') {
-                window.showNotification('🎭 Demo mode activated! Watch the magic happen...', 'info');
+                window.showNotification('🎭 Demo mode activated! Watch the cyberpunk magic happen...', 'info');
                 
-                setTimeout(() => window.showNotification('🎯 Simulating threat detection...', 'warning'), 2000);
-                setTimeout(() => window.showNotification('🛡️ Activating defense protocols...', 'info'), 4000);
-                setTimeout(() => window.showNotification('✅ All systems secure! Demo complete.', 'success'), 6000);
+                setTimeout(() => window.showNotification('🎯 Simulating advanced threat detection...', 'warning'), 2000);
+                setTimeout(() => window.showNotification('🛡️ Activating quantum defense protocols...', 'info'), 4000);
+                setTimeout(() => window.showNotification('⚡ Neural networks analyzing patterns...', 'info'), 6000);
+                setTimeout(() => window.showNotification('🔮 AI threat prediction online...', 'info'), 8000);
+                setTimeout(() => window.showNotification('✅ All systems secure! Elite demo complete.', 'success'), 10000);
             }
         };
+        
+        // Easter egg functions
+        window.hackTheMatrix = function() {
+            console.log('🔮 Entering the Matrix...');
+            document.body.style.background = 'linear-gradient(135deg, #0f0f0f 0%, #001100 50%, #003300 100%)';
+            document.body.style.color = '#00ff00';
+            
+            if (typeof window.showNotification === 'function') {
+                window.showNotification('🔮 Welcome to the Matrix, Neo...', 'success');
+            }
+            
+            setTimeout(() => {
+                document.body.style.background = '';
+                document.body.style.color = '';
+                if (typeof window.showNotification === 'function') {
+                    window.showNotification('🔄 Reality restored', 'info');
+                }
+            }, 5000);
+        };
+        
+        window.cyberAttack = function() {
+            console.log('⚡ Simulating cyber attack...');
+            const elements = document.querySelectorAll('.kpi-card, .chart-container, .risk-item');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.animation = 'shake 0.5s ease-in-out';
+                    el.style.border = '2px solid #ff4757';
+                    el.style.boxShadow = '0 0 20px rgba(255, 71, 87, 0.8)';
+                    
+                    setTimeout(() => {
+                        el.style.animation = '';
+                        el.style.border = '';
+                        el.style.boxShadow = '';
+                    }, 1000);
+                }, index * 200);
+            });
+            
+            if (typeof window.showNotification === 'function') {
+                window.showNotification('⚡ Cyber attack simulation complete', 'warning');
+            }
+        };
+        
+        // Add shake animation to CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
+            }
+            
+            @keyframes notificationGlow {
+                0%, 100% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+                50% { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Console welcome message
+        console.log(`
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║                                                               ║
+    ║        🛡️  CYBERSECURITY COMPASS ELITE v2.0.0  🛡️           ║
+    ║                                                               ║
+    ║  🎯 Advanced Cybersecurity Assessment & Compliance Platform   ║
+    ║                                                               ║
+    ║  🔮 Available Console Commands:                               ║
+    ║  • debugAll() - Complete system diagnostics                  ║
+    ║  • triggerDemo() - Spectacular demo mode                     ║
+    ║  • hackTheMatrix() - Enter the Matrix                        ║
+    ║  • cyberAttack() - Simulate cyber attack                     ║
+    ║                                                               ║
+    ║  ⚡ Keyboard Shortcuts:                                       ║
+    ║  • Ctrl+K - Global search                                    ║
+    ║  • Esc - Close modals                                        ║
+    ║                                                               ║
+    ║  🚀 Powered by Advanced AI & Quantum Security                ║
+    ║                                                               ║
+    ╚═══════════════════════════════════════════════════════════════╝
+        `);
     </script>
 </body>
 </html>
