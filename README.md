@@ -6,12 +6,13 @@
 ![Worldwide Standards](https://img.shields.io/badge/200+-Security%20Frameworks-success?style=for-the-badge&logo=checkmark&logoColor=white)
 ![Daily Operations](https://img.shields.io/badge/Daily-Operations%20Toolkit-orange?style=for-the-badge&logo=tools&logoColor=white)
 ![30 Day Program](https://img.shields.io/badge/30--Day-Education%20Program-purple?style=for-the-badge&logo=graduation-cap&logoColor=white)
+![Flashcards](https://img.shields.io/badge/500+-Study%20Flashcards-red?style=for-the-badge&logo=card&logoColor=white)
 
 **The Ultimate Cybersecurity Navigation System for Security Professionals Worldwide**
 
 *Complete ecosystem: From beginner education to expert reference - Everything cybersecurity professionals need*
 
-[🚀 Live Platform](https://bharathk2498.github.io/CyberSecurityCompass/) • [🎓 30-Day Program](#-30-day-cybersecurity-education-program) • [📚 Global Standards](#-global-cybersecurity-standards) • [🛡️ Daily Operations](#-daily-security-operations) • [🚨 Incident Response](#-incident-response-playbooks)
+[🚀 Live Platform](https://bharathk2498.github.io/CyberSecurityCompass/) • [🎓 30-Day Program](#-30-day-cybersecurity-education-program) • [🧠 Flashcards](#-cybersecurity-flashcards) • [📚 Global Standards](#-global-cybersecurity-standards) • [🛡️ Daily Operations](#-daily-security-operations) • [🚨 Incident Response](#-incident-response-playbooks)
 
 </div>
 
@@ -23,6 +24,9 @@
 
 ### **🎓 For Newcomers (Days 1-30)**
 Complete **30-Day Foundations Program** with daily lessons, flashcards, and hands-on exercises
+
+### **🧠 For Students (Daily Study)**
+**500+ Flashcards** covering beginner to professional level - digital and printable formats
 
 ### **🛡️ For Practitioners (Daily Operations)**
 Comprehensive **daily, weekly, and monthly** operational toolkits and checklists
@@ -59,14 +63,34 @@ Expert-level **incident response playbooks** for every type of cyber attack
 ### **⏰ Daily Commitment:** 
 Just **50 minutes per day** transforms beginners into confident cybersecurity professionals
 
-### **🎯 Learning Outcomes:**
-- Master fundamental cybersecurity concepts
-- Understand all major security frameworks
-- Develop hands-on technical skills
-- Build professional portfolio and network
-- Prepare for entry-level cybersecurity roles
-
 **🚀 [Start Your 30-Day Journey](education/30-day-cybersecurity-foundations.md)**
+
+---
+
+## 🧠 CyberSecurity Flashcards
+
+**Master cybersecurity terminology with systematic flashcard study - Available in multiple formats!**
+
+### **📚 Comprehensive Flashcard Collection**
+- **🔰 Beginner Level:** Fundamental security concepts (CIA Triad, threats, access control)
+- **🔧 Intermediate Level:** Technical skills (network security, tools, web security)  
+- **🎯 Advanced Level:** Specialized topics (threat intel, forensics, pen testing)
+- **💼 Professional Level:** Career development (certifications, compliance, governance)
+
+### **📱 Multiple Study Formats**
+- **💻 Digital Flashcards** - Interactive online study with spaced repetition
+- **🖨️ Printable Cards** - Physical flashcards for offline study
+- **📲 Mobile Compatible** - Anki, Quizlet, and other app imports
+- **🎯 Certification Prep** - Organized by Security+, CISSP, CEH, CISM
+
+### **🎯 Study Features**
+- **500+ Terms & Definitions** covering complete cybersecurity vocabulary
+- **Spaced Repetition Method** for optimal retention
+- **Progress Tracking** to monitor learning advancement
+- **Certification Mapping** aligned with major cybersecurity certifications
+
+**🧠 [Access Digital Flashcards](flashcards/cybersecurity-flashcards.md)**  
+**🖨️ [Print Physical Cards](flashcards/printable-flashcards.md)**
 
 ---
 
@@ -213,9 +237,9 @@ Just **50 minutes per day** transforms beginners into confident cybersecurity pr
 
 ### **🎓 Complete Learning Ecosystem**
 - **Beginner to Expert:** 30-day foundations program through advanced specializations
+- **500+ Flashcards:** Comprehensive terminology mastery system
 - **Hands-on Learning:** Practical exercises, real-world scenarios, portfolio projects
 - **Career Focused:** Certification guidance, networking, interview preparation
-- **Continuous Growth:** Daily learning opportunities and skill development
 
 ### **🛡️ Operational Excellence**
 - **Daily Operations:** Complete toolkits for security teams
@@ -227,7 +251,7 @@ Just **50 minutes per day** transforms beginners into confident cybersecurity pr
 - **AI-Powered Analytics:** Intelligent risk scoring and threat correlation
 - **Interactive Platform:** Live dashboards and real-time monitoring
 - **Mobile Accessibility:** Full functionality across all devices
-- **API Integration:** Enterprise-grade connectivity options
+- **Multiple Study Formats:** Digital, printable, and mobile-compatible flashcards
 
 ---
 
@@ -237,7 +261,7 @@ Just **50 minutes per day** transforms beginners into confident cybersecurity pr
 - **Active Users:** Security professionals from Fortune 500 companies
 - **Global Reach:** Used across 6 continents and 50+ countries
 - **Framework Coverage:** Most comprehensive collection available anywhere
-- **Update Frequency:** Weekly updates with latest threats and regulations
+- **Study Materials:** 500+ flashcards and structured learning paths
 
 ### **🎓 Education Impact**
 - **Career Transitions:** Hundreds of professionals entering cybersecurity
@@ -256,7 +280,10 @@ Just **50 minutes per day** transforms beginners into confident cybersecurity pr
 ## 🚀 Getting Started
 
 ### **🎓 New to Cybersecurity?**
-Start with our **[30-Day Foundations Program](education/30-day-cybersecurity-foundations.md)** - everything you need to launch your cybersecurity career.
+Start with our **[30-Day Foundations Program](education/30-day-cybersecurity-foundations.md)** and **[Beginner Flashcards](flashcards/cybersecurity-flashcards.md)** - everything you need to launch your cybersecurity career.
+
+### **🧠 Studying for Certifications?**
+Use our **[Digital](flashcards/cybersecurity-flashcards.md)** or **[Printable Flashcards](flashcards/printable-flashcards.md)** organized by certification level and track your progress.
 
 ### **🛡️ Security Professional?**
 Jump into **[Daily Operations Toolkit](daily-operations/security-operations-toolkit.md)** and **[Global Standards Database](global-standards/worldwide-frameworks.md)** for immediate value.
@@ -301,6 +328,7 @@ CyberSecurity Compass is recognized as the definitive global reference by cybers
 
 [![⭐ Star this Repository](https://img.shields.io/badge/⭐-Star%20this%20Repository-yellow?style=for-the-badge)](https://github.com/bharathk2498/CyberSecurityCompass)
 [![🚀 Start Learning](https://img.shields.io/badge/🚀-Start%20Learning-blue?style=for-the-badge)](education/30-day-cybersecurity-foundations.md)
+[![🧠 Study Flashcards](https://img.shields.io/badge/🧠-Study%20Flashcards-red?style=for-the-badge)](flashcards/cybersecurity-flashcards.md)
 [![🛡️ Daily Operations](https://img.shields.io/badge/🛡️-Daily%20Operations-green?style=for-the-badge)](daily-operations/security-operations-toolkit.md)
 
 </div>
